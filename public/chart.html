@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=480, initial-scale=1">
+  <title>Novexx — IO-Signals Chart</title>
+  <link rel="stylesheet" href="../styles/main.css">
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<link href="css/styles.css" rel="stylesheet"></head>
+<body>
+<div class="device">
+  <div class="page">
+
+    <!-- Status Bar — RUNNING / READY state -->
+<header class="status-bar" role="banner">
+
+    <i class="icon icon--top-one icon--sm" aria-hidden="true"></i>
+    <i class="icon icon--top-two icon--sm" aria-hidden="true"></i>
+    <i class="icon icon--wifi icon--sm" aria-hidden="true"></i>
+
+  <div class="status-bar__chip" role="status" aria-label="Machine status: Ready">
+    <span class="status-bar__dot status-bar__dot--running" aria-hidden="true"></span>
+    <span class="status-bar__label">Ready</span>
+  </div>
+</header>
+
+
+    <div class="page-header">
+      <div class="page-header__left">
+        <a href="menu.html" class="page-header__back" aria-label="Back to menu">
+          <i class="icon icon--arrow-left icon--md icon--white" aria-hidden="true"></i>
+        </a>
+        <h1 class="page-header__title">Charts</h1>
+      </div>
+    </div>
+
+    <main class="page__content page__content--list" role="main">
+      <h3>Chart 1</h3>
+      <div class="chart">
+        <div class="chart__area" id="chart-area" role="img" aria-label="IO-Signals area chart — Channel A and Channel B"></div>
+      </div>
+      <h3>Chart 2</h3>
+      <div class="chart">
+        <div class="chart__area" id="chart-area-2" role="img" aria-label="IO-Signals bar chart — Digital and Analog readings"></div>
+      </div>
+      <h3>Chart 3</h3>
+      <div class="chart">
+        <div class="chart__area" id="chart-area-3" role="img" aria-label="IO-Signals mixed chart — Sensor A area and Sensor B line"></div>
+      </div>
+      <h3>Chart 4</h3>
+      <div class="chart">
+        <div class="chart__area" id="chart-area-4" role="img" aria-label="IO-Signals donut chart"></div>
+      </div>
+
+    </main>
+
+    <!-- Bottom Nav — Inner pages (logged in, L2 Super Admin) -->
+<nav class="bottom-nav--inner" aria-label="Page navigation">
+  <!-- Floating level avatar — 21px above bar -->
+  <div class="bottom-nav__avatar-wrap">
+    <a href="login.html" class="bottom-nav__avatar bottom-nav__avatar--l2" aria-label="Logged in as Super Admin, Level 2">
+      <span aria-hidden="true">L2</span>
+    </a>
+    <span class="bottom-nav__label">Super Admin</span>
+  </div>
+
+  <div class="bottom-nav__gradient-line" aria-hidden="true"></div>
+
+  <div class="bottom-nav__inner-bar">
+    <!-- Back -->
+    <a href="javascript:history.back()" class="bottom-nav__item" aria-label="Go back">
+      <i class="icon icon--back-circle icon--md icon--white" aria-hidden="true"></i>
+      <span class="bottom-nav__label">Back</span>
+    </a>
+
+    <!-- Spacer (avatar placeholder) -->
+    <div class="bottom-nav__spacer" aria-hidden="true"></div>
+
+    <!-- Menu -->
+    <a href="menu.html" class="bottom-nav__item" aria-label="Open menu">
+      <i class="icon icon--fill-more icon--sm icon--white" aria-hidden="true"></i>
+      <span class="bottom-nav__label">Menu</span>
+    </a>
+  </div>
+</nav>
+
+
+  </div>
+</div>
+<script src="../js/main.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var options = {
+      chart: {
+        type: 'area',
+        height: 320,
+        background: '#313648',
+        toolbar: { show: false },
+        fontFamily: "'Figtree', sans-serif",
+        animations: { enabled: true, speed: 600 },
+        sparkline: { enabled: false },
+      },
+      theme: { mode: 'dark' },
+      colors: ['#ff601c', '#79a3ff'],
+      series: [
+        {
+          name: 'Channel A',
+          data: [28, 42, 35, 58, 47, 63, 52, 70, 61, 55, 72, 65],
+        },
+        {
+          name: 'Channel B',
+          data: [18, 25, 30, 22, 38, 29, 44, 36, 51, 43, 48, 57],
+        },
+      ],
+      xaxis: {
+        categories: ['00:00','01:00','02:00','03:00','04:00','05:00','06:00','07:00','08:00','09:00','10:00','11:00'],
+        labels: {
+          style: { colors: '#98a3b2', fontSize: '11px' },
+        },
+        axisBorder: { show: false },
+        axisTicks: { show: false },
+      },
+      yaxis: {
+        labels: {
+          style: { colors: '#98a3b2', fontSize: '11px' },
+          formatter: function (val) { return val + ' V'; },
+        },
+      },
+      grid: {
+        borderColor: '#505d75',
+        strokeDashArray: 3,
+        xaxis: { lines: { show: false } },
+      },
+      fill: {
+        type: 'gradient',
+        gradient: {
+          shadeIntensity: 1,
+          opacityFrom: 0.35,
+          opacityTo: 0.02,
+          stops: [0, 90, 100],
+        },
+      },
+      stroke: { curve: 'smooth', width: 2.5 },
+      dataLabels: { enabled: false },
+      legend: {
+        show: true,
+        position: 'bottom',
+        labels: { colors: '#98a3b2' },
+        markers: { width: 10, height: 10, radius: 50 },
+        itemMargin: { horizontal: 16 },
+      },
+      tooltip: {
+        theme: 'dark',
+        style: { fontSize: '12px', fontFamily: "'Figtree', sans-serif" },
+      },
+    };
+
+    var chart = new ApexCharts(document.getElementById('chart-area'), options);
+    chart.render();
+
+    var options2 = {
+      chart: {
+        type: 'bar',
+        height: 320,
+        background: '#313648',
+        toolbar: { show: false },
+        fontFamily: "'Figtree', sans-serif",
+        animations: { enabled: true, speed: 600 },
+      },
+      theme: { mode: 'dark' },
+      colors: ['#FFCC04', '#79a3ff'],
+      fill: {
+        type: ['gradient', 'gradient'],
+        gradient: {
+          type: 'vertical',
+          gradientToColors: ['rgba(255, 97, 28, 0)', 'rgba(79, 57, 246, 0)'],
+          inverseColors: true,
+          opacityFrom: 1,
+          opacityTo: 1,
+          stops: [0, 100],
+        },
+      },
+      series: [
+        {
+          name: 'Digital',
+          data: [44, 55, 41, 67, 22, 43, 60, 35],
+        },
+        {
+          name: 'Analog',
+          data: [31, 49, 62, 28, 54, 38, 71, 45],
+        },
+      ],
+      xaxis: {
+        categories: ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su', 'Mo'],
+        labels: {
+          style: { colors: '#98a3b2', fontSize: '11px' },
+        },
+        axisBorder: { show: false },
+        axisTicks: { show: false },
+      },
+      yaxis: {
+        labels: {
+          style: { colors: '#98a3b2', fontSize: '11px' },
+          formatter: function (val) { return val + ' mA'; },
+        },
+      },
+      grid: {
+        borderColor: '#505d75',
+        strokeDashArray: 3,
+        xaxis: { lines: { show: false } },
+      },
+      plotOptions: {
+        bar: {
+          borderRadius: 4,
+          columnWidth: '55%',
+          dataLabels: { position: 'top' },
+        },
+      },
+      dataLabels: { enabled: false },
+      legend: {
+        show: true,
+        position: 'bottom',
+        labels: { colors: '#98a3b2' },
+        markers: { width: 10, height: 10, radius: 4 },
+        itemMargin: { horizontal: 16 },
+      },
+      tooltip: {
+        theme: 'dark',
+        style: { fontSize: '12px', fontFamily: "'Figtree', sans-serif" },
+      },
+    };
+
+    var chart2 = new ApexCharts(document.getElementById('chart-area-2'), options2);
+    chart2.render();
+
+    var options3 = {
+      chart: {
+        type: 'line',
+        height: 320,
+        background: '#313648',
+        toolbar: { show: false },
+        fontFamily: "'Figtree', sans-serif",
+        animations: { enabled: true, speed: 600 },
+      },
+      theme: { mode: 'dark' },
+      colors: ['#ff601c', '#79a3ff'],
+      series: [
+        {
+          name: 'Sensor A',
+          type: 'area',
+          data: [30, 48, 42, 61, 55, 70, 63, 78, 68, 74, 60, 82],
+        },
+        {
+          name: 'Sensor B',
+          type: 'line',
+          data: [12, 20, 16, 28, 22, 34, 29, 40, 35, 44, 38, 50],
+        },
+      ],
+      xaxis: {
+        categories: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
+        labels: { style: { colors: '#98a3b2', fontSize: '11px' } },
+        axisBorder: { show: false },
+        axisTicks: { show: false },
+      },
+      yaxis: [
+        {
+          seriesName: 'Sensor A',
+          labels: {
+            style: { colors: '#ff601c', fontSize: '11px' },
+            formatter: function (val) { return val + ' V'; },
+          },
+        },
+        {
+          seriesName: 'Sensor B',
+          opposite: true,
+          labels: {
+            style: { colors: '#79a3ff', fontSize: '11px' },
+            formatter: function (val) { return val + ' mA'; },
+          },
+        },
+      ],
+      grid: {
+        borderColor: '#505d75',
+        strokeDashArray: 3,
+        xaxis: { lines: { show: false } },
+      },
+      fill: {
+        type: ['gradient', 'solid'],
+        gradient: { shadeIntensity: 1, opacityFrom: 0.35, opacityTo: 0.02, stops: [0, 90, 100] },
+      },
+      stroke: { curve: 'smooth', width: [2.5, 2.5], dashArray: [0, 4] },
+      dataLabels: { enabled: false },
+      legend: {
+        show: true,
+        position: 'bottom',
+        labels: { colors: '#98a3b2' },
+        markers: { width: 10, height: 10, radius: 50 },
+        itemMargin: { horizontal: 16 },
+      },
+      tooltip: {
+        theme: 'dark',
+        style: { fontSize: '12px', fontFamily: "'Figtree', sans-serif" },
+        shared: true,
+        intersect: false,
+      },
+    };
+
+    var chart3 = new ApexCharts(document.getElementById('chart-area-3'), options3);
+    chart3.render();
+
+    var options4 = {
+      chart: {
+        type: 'donut',
+        height: 320,
+        background: '#313648',
+        fontFamily: "'Figtree', sans-serif",
+        animations: { enabled: true, speed: 600 },
+      },
+      theme: { mode: 'dark' },
+      colors: ['#ff601c', '#79a3ff', '#FFCC04', '#4f39f6', '#57d9a3'],
+      series: [44, 55, 41, 17, 15],
+      labels: ['Channel A', 'Channel B', 'Sensor A', 'Sensor B', 'Other'],
+      dataLabels: { enabled: false },
+      legend: {
+        show: true,
+        position: 'bottom',
+        labels: { colors: '#98a3b2' },
+        markers: { width: 10, height: 10, radius: 50 },
+        itemMargin: { horizontal: 12 },
+      },
+      plotOptions: {
+        pie: {
+          donut: {
+            size: '65%',
+            labels: {
+              show: true,
+              total: {
+                show: true,
+                label: 'Total',
+                color: '#98a3b2',
+                fontSize: '13px',
+                fontWeight: 400,
+                formatter: function (w) {
+                  return w.globals.seriesTotals.reduce(function (a, b) { return a + b; }, 0);
+                },
+              },
+              value: {
+                color: '#eff6ff',
+                fontSize: '28px',
+                fontWeight: 600,
+                fontFamily: "'Fira Code', monospace",
+              },
+            },
+          },
+        },
+      },
+      stroke: { width: 0 },
+      tooltip: {
+        theme: 'dark',
+        style: { fontSize: '12px', fontFamily: "'Figtree', sans-serif" },
+      },
+    };
+
+    var chart4 = new ApexCharts(document.getElementById('chart-area-4'), options4);
+    chart4.render();
+  });
+</script>
+<script defer src="js/bundle.js"></script></body>
+</html>

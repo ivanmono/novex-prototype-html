@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=480, initial-scale=1">
+  <title>Novexx — Manage Users</title>
+  <link rel="stylesheet" href="../styles/main.css">
+<link href="css/styles.css" rel="stylesheet"></head>
+<body>
+<div class="device">
+  <div class="page">
+
+    <!-- Status Bar — RUNNING / READY state -->
+<header class="status-bar" role="banner">
+
+    <i class="icon icon--top-one icon--sm" aria-hidden="true"></i>
+    <i class="icon icon--top-two icon--sm" aria-hidden="true"></i>
+    <i class="icon icon--wifi icon--sm" aria-hidden="true"></i>
+
+  <div class="status-bar__chip" role="status" aria-label="Machine status: Ready">
+    <span class="status-bar__dot status-bar__dot--running" aria-hidden="true"></span>
+    <span class="status-bar__label">Ready</span>
+  </div>
+</header>
+
+
+    <!-- Page header with Add New button -->
+    <div class="page-header">
+      <div class="page-header__left">
+        <a href="menu.html" class="page-header__back" aria-label="Back to menu">
+          <i class="icon icon--arrow-left icon--md icon--white" aria-hidden="true"></i>
+        </a>
+        <h1 class="page-header__title">Manage Users</h1>
+      </div>
+      <button class="btn btn--primary btn--action btn--disabled" disabled="" aria-label="Add new user (unavailable)">
+        Add New
+      </button>
+    </div>
+
+    <!-- User list -->
+    <main class="page__content page__content--tight" role="main">
+
+      <div class="user-tile">
+        <div class="user-tile__inner">
+          <div class="user-tile__info">
+            <span class="user-tile__level user-tile__level--3">Level 3</span>
+            <span class="user-tile__name">Alice Müller</span>
+            <span class="user-tile__role">Administrator</span>
+          </div>
+          <a href="manage-users-edit.html" class="user-tile__edit" aria-label="Edit Alice Müller">
+            <i class="icon icon--edit icon--md icon--white" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="user-tile">
+        <div class="user-tile__inner">
+          <div class="user-tile__info">
+            <span class="user-tile__level user-tile__level--1">Level 1</span>
+            <span class="user-tile__name">Bob Schmidt</span>
+            <span class="user-tile__role">Operator</span>
+          </div>
+          <a href="manage-users-edit.html" class="user-tile__edit" aria-label="Edit Bob Schmidt">
+            <i class="icon icon--edit icon--md icon--white" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="user-tile">
+        <div class="user-tile__inner">
+          <div class="user-tile__info">
+            <span class="user-tile__level user-tile__level--2">Level 2</span>
+            <span class="user-tile__name">Carol Weber</span>
+            <span class="user-tile__role">Supervisor</span>
+          </div>
+          <a href="manage-users-edit.html" class="user-tile__edit" aria-label="Edit Carol Weber">
+            <i class="icon icon--edit icon--md icon--white" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="user-tile">
+        <div class="user-tile__inner">
+          <div class="user-tile__info">
+            <span class="user-tile__level user-tile__level--1">Level 1</span>
+            <span class="user-tile__name">David Braun</span>
+            <span class="user-tile__role">Operator</span>
+          </div>
+          <a href="manage-users-edit.html" class="user-tile__edit" aria-label="Edit David Braun">
+            <i class="icon icon--edit icon--md icon--white" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- Bottom Nav — Inner pages (logged in, L2 Super Admin) -->
+<nav class="bottom-nav--inner" aria-label="Page navigation">
+  <!-- Floating level avatar — 21px above bar -->
+  <div class="bottom-nav__avatar-wrap">
+    <a href="login.html" class="bottom-nav__avatar bottom-nav__avatar--l2" aria-label="Logged in as Super Admin, Level 2">
+      <span aria-hidden="true">L2</span>
+    </a>
+    <span class="bottom-nav__label">Super Admin</span>
+  </div>
+
+  <div class="bottom-nav__gradient-line" aria-hidden="true"></div>
+
+  <div class="bottom-nav__inner-bar">
+    <!-- Back -->
+    <a href="javascript:history.back()" class="bottom-nav__item" aria-label="Go back">
+      <i class="icon icon--back-circle icon--md icon--white" aria-hidden="true"></i>
+      <span class="bottom-nav__label">Back</span>
+    </a>
+
+    <!-- Spacer (avatar placeholder) -->
+    <div class="bottom-nav__spacer" aria-hidden="true"></div>
+
+    <!-- Menu -->
+    <a href="menu.html" class="bottom-nav__item" aria-label="Open menu">
+      <i class="icon icon--fill-more icon--sm icon--white" aria-hidden="true"></i>
+      <span class="bottom-nav__label">Menu</span>
+    </a>
+  </div>
+</nav>
+
+
+  </div>
+</div>
+<script src="../js/main.js"></script>
+<script defer src="js/bundle.js"></script></body>
+</html>

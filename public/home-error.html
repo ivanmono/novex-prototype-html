@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=480, initial-scale=1">
+  <title>Novexx — Home (Error)</title>
+  <link rel="stylesheet" href="../styles/main.css">
+<link href="css/styles.css" rel="stylesheet"></head>
+<body>
+<div class="device">
+  <div class="page">
+
+    <!-- Status Bar — ERROR state -->
+<header class="status-bar" role="banner">
+    <i class="icon icon--top-one icon--sm" aria-hidden="true"></i>
+    <i class="icon icon--top-two icon--sm" aria-hidden="true"></i>
+    <i class="icon icon--wifi icon--sm" aria-hidden="true"></i>
+  <div class="status-bar__chip" role="status" aria-label="Machine status: Error">
+    <span class="status-bar__dot status-bar__dot--error" aria-hidden="true"></span>
+    <span class="status-bar__label status-bar__label--error">Error</span>
+  </div>
+</header>
+
+
+    <main class="page__content page__content--home">
+      <div class="page__glow page__glow--error" aria-hidden="true"></div>
+
+      <img src="../assets/images/logo.svg" alt="Novexx Solutions" class="home__logo">
+
+      <!-- Play button — dimmed in error state -->
+      <button class="play-btn play-btn--error" aria-label="Machine error — unavailable" disabled="">
+        <div class="play-btn__ring">
+          <div class="play-btn__inner">
+            <i class="icon icon--play-big icon--xl icon--white" aria-hidden="true"></i>
+          </div>
+        </div>
+      </button>
+
+      <!-- Machine name + status pill -->
+      <div class="home__machine-info">
+        <span class="t-hero">Line Name 5468</span>
+        <span class="status-pill status-pill--error" role="status" aria-live="assertive">ERROR</span>
+      </div>
+
+      <!-- Quick link tiles — disabled -->
+      <div class="quick-links" role="navigation" aria-label="Quick links (unavailable during error)">
+        <div class="quick-link quick-link--disabled">
+          <div class="quick-link__inner">
+            <div class="quick-link__text">
+              <span class="quick-link__category">Playground</span>
+              <span class="quick-link__name">Sliders</span>
+            </div>
+            <i class="icon icon--arrow-right-alt icon--sm icon--muted" aria-hidden="true"></i>
+          </div>
+        </div>
+
+        <div class="quick-link quick-link--disabled">
+          <div class="quick-link__inner">
+            <div class="quick-link__text">
+              <span class="quick-link__category">Playground</span>
+              <span class="quick-link__name">Select Drawer</span>
+            </div>
+            <i class="icon icon--arrow-right-alt icon--sm icon--muted" aria-hidden="true"></i>
+          </div>
+        </div>
+
+        <div class="quick-link quick-link--disabled">
+          <div class="quick-link__inner">
+            <div class="quick-link__text">
+              <span class="quick-link__category">Playground</span>
+              <span class="quick-link__name">Input Fields</span>
+            </div>
+            <i class="icon icon--arrow-right-alt icon--sm icon--muted" aria-hidden="true"></i>
+          </div>
+        </div>
+
+        <div class="quick-link quick-link--disabled">
+          <div class="quick-link__inner">
+            <div class="quick-link__text">
+              <span class="quick-link__category">Production</span>
+              <span class="quick-link__name">Formats/Recipes</span>
+            </div>
+            <i class="icon icon--arrow-right-alt icon--sm icon--muted" aria-hidden="true"></i>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Error banner above bottom nav -->
+    <div class="error-banner" role="alert" aria-live="assertive">
+      <div class="error-banner__left">
+        <i class="icon icon--alert-clipboard icon--xs icon--danger" aria-hidden="true"></i>
+        <span class="error-banner__text">3 Errors</span>
+      </div>
+      <button aria-label="Expand error details" onclick="document.getElementById('error-overlay').hidden=false">
+        <i class="icon icon--info icon--xs icon--danger" aria-hidden="true"></i>
+      </button>
+    </div>
+
+    <!-- Bottom Nav — Home Error: Trigger / Login / Menu -->
+<nav class="bottom-nav--home" aria-label="Main navigation">
+  <div class="bottom-nav__separator bottom-nav__separator--error" aria-hidden="true"></div>
+  <div class="bottom-nav__bar">
+    <button class="bottom-nav__item bottom-nav__item--disabled" disabled="" aria-label="Trigger (unavailable)">
+      <i class="icon icon--play icon--sm icon--muted" aria-hidden="true"></i>
+      <span class="bottom-nav__label">Trigger</span>
+    </button>
+
+    <a href="login.html" class="bottom-nav__item" aria-label="Login">
+      <i class="icon icon--fill-user icon--sm" aria-hidden="true"></i>
+      <span class="bottom-nav__label bottom-nav__label--accent">Login</span>
+    </a>
+
+    <a href="menu.html" class="bottom-nav__item" aria-label="Open menu">
+      <i class="icon icon--fill-more icon--sm" aria-hidden="true"></i>
+      <span class="bottom-nav__label">Menu</span>
+    </a>
+  </div>
+</nav>
+
+
+  </div>
+
+  <!-- Error overlay -->
+  <div id="error-overlay" class="error-overlay__backdrop" hidden="">
+    <div class="error-overlay" role="dialog" aria-label="Error details" aria-modal="true">
+      <div class="error-overlay__header">
+        <span class="error-overlay__title">Errors</span>
+        <button aria-label="Download error log">
+          <i class="icon icon--close icon--sm icon--white" aria-hidden="true"></i>
+        </button>
+      </div>
+
+      <div class="error-overlay__list">
+        <div class="error-overlay__item">
+          <div class="error-overlay__item-icon">
+            <i class="icon icon--sm icon--close-rounded" aria-hidden="true"></i>
+          </div>
+          <div class="error-overlay__item-content">
+            <span class="error-overlay__item-title">Error 5456 — Print Quality Degradation</span>
+            <span class="error-overlay__item-desc">Print contrast below accepted threshold.</span>
+          </div>
+        </div>
+
+        <div class="error-overlay__item">
+          <div class="error-overlay__item-icon">
+            <i class="icon icon--sm icon--close-rounded" aria-hidden="true"></i>
+          </div>
+          <div class="error-overlay__item-content">
+            <span class="error-overlay__item-title">Error 5457 — Ribbon Missing</span>
+            <span class="error-overlay__item-desc">Thermal ribbon not detected.</span>
+          </div>
+        </div>
+
+        <div class="error-overlay__item">
+          <div class="error-overlay__item-icon">
+            <i class="icon icon--sm icon--close-rounded" aria-hidden="true"></i>
+          </div>
+          <div class="error-overlay__item-content">
+            <span class="error-overlay__item-title">Error 5458 — Module Timeout</span>
+            <span class="error-overlay__item-desc">No response from print module.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="error-overlay__footer">
+        <button class="btn btn--primary" onclick="document.getElementById('error-overlay').hidden=true" aria-label="Retry">
+          Retry
+        </button>
+      </div>
+    </div>
+  </div>
+
+</div>
+<script src="../js/main.js"></script>
+<script defer src="js/bundle.js"></script></body>
+</html>

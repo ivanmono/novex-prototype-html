@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=480, initial-scale=1">
+  <title>Novexx — IO-Signals Chart 3</title>
+  <link rel="stylesheet" href="../styles/main.css">
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<link href="css/styles.css" rel="stylesheet"></head>
+<body>
+<div class="device">
+  <div class="page">
+
+    <!-- Status Bar — RUNNING / READY state -->
+<header class="status-bar" role="banner">
+
+    <i class="icon icon--top-one icon--sm" aria-hidden="true"></i>
+    <i class="icon icon--top-two icon--sm" aria-hidden="true"></i>
+    <i class="icon icon--wifi icon--sm" aria-hidden="true"></i>
+
+  <div class="status-bar__chip" role="status" aria-label="Machine status: Ready">
+    <span class="status-bar__dot status-bar__dot--running" aria-hidden="true"></span>
+    <span class="status-bar__label">Ready</span>
+  </div>
+</header>
+ 
+
+    <div class="page-header">
+      <div class="page-header__left">
+        <a href="chart-2.html" class="page-header__back" aria-label="Back">
+          <i class="icon icon--arrow-left icon--md icon--white" aria-hidden="true"></i>
+        </a>
+        <h1 class="page-header__title">IO-Signals</h1>
+      </div>
+    </div>
+
+    <main class="page__content page__content--list" role="main">
+      <div class="chart">
+        <div class="chart__area" id="chart-area" role="img" aria-label="IO-Signals mixed chart — Sensor A area and Sensor B line"></div>
+      </div>
+
+    </main>
+
+    <!-- Bottom Nav — Inner pages (logged in, L2 Super Admin) -->
+<nav class="bottom-nav--inner" aria-label="Page navigation">
+  <!-- Floating level avatar — 21px above bar -->
+  <div class="bottom-nav__avatar-wrap">
+    <a href="login.html" class="bottom-nav__avatar bottom-nav__avatar--l2" aria-label="Logged in as Super Admin, Level 2">
+      <span aria-hidden="true">L2</span>
+    </a>
+    <span class="bottom-nav__label">Super Admin</span>
+  </div>
+
+  <div class="bottom-nav__gradient-line" aria-hidden="true"></div>
+
+  <div class="bottom-nav__inner-bar">
+    <!-- Back -->
+    <a href="javascript:history.back()" class="bottom-nav__item" aria-label="Go back">
+      <i class="icon icon--back-circle icon--md icon--white" aria-hidden="true"></i>
+      <span class="bottom-nav__label">Back</span>
+    </a>
+
+    <!-- Spacer (avatar placeholder) -->
+    <div class="bottom-nav__spacer" aria-hidden="true"></div>
+
+    <!-- Menu -->
+    <a href="menu.html" class="bottom-nav__item" aria-label="Open menu">
+      <i class="icon icon--fill-more icon--sm icon--white" aria-hidden="true"></i>
+      <span class="bottom-nav__label">Menu</span>
+    </a>
+  </div>
+</nav>
+
+
+  </div>
+</div>
+<script src="../js/main.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var options = {
+      chart: {
+        type: 'line',
+        height: 320,
+        background: '#313648',
+        toolbar: { show: false },
+        fontFamily: "'Figtree', sans-serif",
+        animations: { enabled: true, speed: 600 },
+      },
+      theme: { mode: 'dark' },
+      colors: ['#ff601c', '#79a3ff'],
+      series: [
+        {
+          name: 'Sensor A',
+          type: 'area',
+          data: [30, 48, 42, 61, 55, 70, 63, 78, 68, 74, 60, 82],
+        },
+        {
+          name: 'Sensor B',
+          type: 'line',
+          data: [12, 20, 16, 28, 22, 34, 29, 40, 35, 44, 38, 50],
+        },
+      ],
+      xaxis: {
+        categories: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
+        labels: {
+          style: { colors: '#98a3b2', fontSize: '11px' },
+        },
+        axisBorder: { show: false },
+        axisTicks: { show: false },
+      },
+      yaxis: [
+        {
+          seriesName: 'Sensor A',
+          labels: {
+            style: { colors: '#ff601c', fontSize: '11px' },
+            formatter: function (val) { return val + ' V'; },
+          },
+        },
+        {
+          seriesName: 'Sensor B',
+          opposite: true,
+          labels: {
+            style: { colors: '#79a3ff', fontSize: '11px' },
+            formatter: function (val) { return val + ' mA'; },
+          },
+        },
+      ],
+      grid: {
+        borderColor: '#505d75',
+        strokeDashArray: 3,
+        xaxis: { lines: { show: false } },
+      },
+      fill: {
+        type: ['gradient', 'solid'],
+        gradient: {
+          shadeIntensity: 1,
+          opacityFrom: 0.35,
+          opacityTo: 0.02,
+          stops: [0, 90, 100],
+        },
+      },
+      stroke: {
+        curve: 'smooth',
+        width: [2.5, 2.5],
+        dashArray: [0, 4],
+      },
+      dataLabels: { enabled: false },
+      legend: {
+        show: true,
+        position: 'bottom',
+        labels: { colors: '#98a3b2' },
+        markers: { width: 10, height: 10, radius: 50 },
+        itemMargin: { horizontal: 16 },
+      },
+      tooltip: {
+        theme: 'dark',
+        style: { fontSize: '12px', fontFamily: "'Figtree', sans-serif" },
+        shared: true,
+        intersect: false,
+      },
+    };
+
+    var chart = new ApexCharts(document.getElementById('chart-area'), options);
+    chart.render();
+  });
+</script>
+<script defer src="js/bundle.js"></script></body>
+</html>
