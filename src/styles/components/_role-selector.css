@@ -1,0 +1,105 @@
+/* =============================================================
+	 ROLE / LEVEL SELECTOR  (.role-option, .level-option)
+	 Radio-style rows used in Edit Field pages.
+	 ============================================================= */
+
+/* ── Role selector (.role-option) ─────────────────────────── */
+.role-options {
+	display: flex;
+	flex-direction: column;
+	gap: var(--unit-12);
+	border: none;
+	padding: 0;
+	margin: 0;
+}
+
+.role-option {
+	display: contents;
+
+	/* Hide native radio visually but keep it accessible */
+	&__input {
+		position: absolute;
+		opacity: 0;
+		width: 0;
+		height: 0;
+		pointer-events: none;
+	}
+
+	/* Label = full row: text left, circle indicator right */
+	&__label {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+		cursor: pointer;
+		font-size: 20px;
+		font-weight: 700;
+		color: var(--text-primary);
+		opacity: 0.75;
+		transition: opacity 0.15s;
+
+		&:active { opacity: 0.6; }
+
+		/* Circle indicator via ::after */
+		&::after {
+			content: '';
+			width: var(--unit-48);
+			height: var(--unit-48);
+			border-radius: var(--unit-60);
+			border: 1px solid transparent;
+			background:
+				linear-gradient(#4d5a67, #4d5a67) padding-box,
+				var(--gradient-stroke-secondary) border-box;
+			flex-shrink: 0;
+			transition: background 0.15s;
+		}
+	}
+
+	/* Checked: full opacity + teal circle with checkmark */
+	&__input:checked + &__label {
+		opacity: 1;
+
+		&::after {
+			background:
+				url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M2.5 8.5l3.5 3.5 7.5-8' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 20px 20px no-repeat padding-box,
+				linear-gradient(var(--brand-green), var(--brand-green)) padding-box,
+				var(--gradient-stroke-secondary) border-box;
+		}
+	}
+
+	/* Focus ring for keyboard nav */
+	&__input:focus-visible + &__label::after {
+		outline: 2px solid var(--brand-green);
+		outline-offset: 2px;
+	}
+}
+
+/* ── Level selector (.level-option) — LOW / MEDIUM / HIGH ── */
+.level-options {
+	display: flex;
+	flex-direction: column;
+	gap: var(--unit-8);
+}
+
+.level-option {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	padding: var(--unit-16) 0;
+	gap: var(--unit-12);
+	transition: opacity 0.15s;
+
+	&:active { opacity: 0.75; }
+
+	&__label {
+		font-size: 18px;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		color: var(--text-primary);
+		opacity: 0.75;
+
+		&--selected { opacity: 1; }
+	}
+}

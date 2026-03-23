@@ -1,0 +1,19 @@
+/* =============================================================
+	 ROOT / PAGE SHELL
+	 Fixed 480 × 800px display — no responsive breakpoints needed.
+	 ============================================================= */
+body {
+	background-color: var(--background);
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	min-height: 100vh;
+}
+
+/* Outer container — enforces the device dimensions */
+.device {
+	overflow: hidden;
+	position: relative;
+	width: 100%;;
+	height: 100%;
+}

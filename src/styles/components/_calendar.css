@@ -1,0 +1,302 @@
+/* =============================================================
+	 CALENDAR  (.calendar)
+	 Static calendar component + jQuery UI datepicker overrides
+	 ============================================================= */
+
+/* ── Static calendar (.calendar) ──────────────────────────── */
+.calendar {
+	display: flex;
+	flex-direction: column;
+	gap: var(--unit-16);
+	padding: 1px;
+	border-radius: var(--unit-24);
+	background: var(--gradient-stroke-secondary);
+
+	&__inner {
+		background: var(--background);
+		border-radius: 23px;
+		padding: var(--unit-24);
+		display: flex;
+		flex-direction: column;
+		gap: var(--unit-16);
+	}
+
+	&__header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	&__month {
+		font-size: 18px;
+		font-weight: 600;
+		color: var(--text-primary);
+	}
+
+	&__nav {
+		display: flex;
+		align-items: center;
+		gap: var(--unit-8);
+	}
+
+	&__nav-btn {
+		opacity: 0.75;
+		transition: opacity 0.15s;
+
+		&:active { opacity: 1; }
+	}
+
+	/* Day-of-week header */
+	&__weekdays {
+		display: grid;
+		grid-template-columns: repeat(7, 1fr);
+		gap: var(--unit-4);
+	}
+
+	&__weekday {
+		font-size: 18px;
+		font-weight: 600;
+		color: var(--text-secondary);
+		text-align: center;
+		text-transform: uppercase;
+		padding: var(--unit-4) 0;
+	}
+
+	/* Date grid */
+	&__grid {
+		display: grid;
+		grid-template-columns: repeat(7, 1fr);
+		gap: var(--unit-4);
+	}
+
+	&__day {
+		aspect-ratio: 1;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: var(--unit-8);
+		font-size: 20px;
+		font-weight: 400;
+		color: var(--text-primary);
+		cursor: pointer;
+		transition: background-color 0.15s;
+
+		&:active { background: rgba(255, 255, 255, 0.1); }
+
+		/* Current / selected day */
+		&--current {
+			background: var(--brand-green);
+			color: var(--white);
+			font-weight: 600;
+		}
+ 
+		/* Past days */
+		&--past { opacity: 0.40; }
+
+		/* Empty cells */
+		&--empty { pointer-events: none; }
+	}
+}
+
+/* ── jQuery UI datepicker overrides ───────────────────────── */
+.ui-datepicker {
+	width: 320px;
+	position: absolute;
+	z-index: 9999;
+	box-shadow: 0px 8px 32px 0px rgba(0, 0, 0, 0.6);
+	padding: 1px;
+	border-radius: var(--unit-24);
+	background: var(--gradient-stroke-secondary);
+	border: none;
+	box-shadow: none;
+	font-family: 'Figtree', sans-serif;
+
+	.ui-datepicker-header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		background: none;
+		border: none;
+		border-radius: 23px 23px 0 0;
+		padding: var(--unit-24) var(--unit-24) var(--unit-16);
+		background-color: var(--background);
+		position: relative;
+	}
+
+	.ui-datepicker-title {
+		font-size: 18px;
+		font-weight: 600;
+		color: var(--text-primary);
+		line-height: 1;
+		margin: 0;
+		order: 2;
+		flex: 1;
+		text-align: center;
+	}
+
+	.ui-datepicker-prev,
+	.ui-datepicker-next {
+		position: static;
+		top: auto;
+		width: 32px;
+		height: 32px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+		border-radius: var(--unit-8);
+		opacity: 0.75;
+		transition: opacity 0.15s;
+		background: none;
+		border: none;
+		flex-shrink: 0;
+
+		&:hover { opacity: 1; top: auto; }
+		&.ui-state-hover { background: none; border: none; top: auto; }
+
+		.ui-icon {
+			background-image: none;
+			width: 32px;
+			height: 32px;
+			display: block;
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: contain;
+			text-indent: 999999px;
+
+			left: 0 !important;
+			right: 0 !important;
+			top: 0 !important;
+			position: relative;
+		}
+	}
+
+	.ui-datepicker-prev { order: 1; }
+	.ui-datepicker-next { order: 3; }
+
+	.ui-datepicker-prev .ui-icon {
+		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='white' d='M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z'/%3E%3C/svg%3E");
+	}
+
+	.ui-datepicker-next .ui-icon {
+		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='white' d='M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z'/%3E%3C/svg%3E");
+	}
+
+	/* Week-day header + calendar table */
+	.ui-datepicker-calendar {
+		width: 100%;
+		border-collapse: collapse;
+		background-color: var(--background);
+		border-radius: 0 0 23px 23px;
+		padding: 0 var(--unit-24) var(--unit-24);
+		margin: 0;
+		border: none;
+
+		thead th {
+			padding: var(--unit-4) 0;
+			font-size: 16px;
+			font-weight: 600;
+			color: var(--text-secondary);
+			text-align: center;
+			text-transform: uppercase;
+			border: none;
+			background: none;
+		}
+
+		tbody td {
+			border: none;
+			padding: 2px;
+			background: none;
+
+			&.ui-datepicker-other-month { opacity: 0.35; }
+
+			a, span {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				aspect-ratio: 1;
+				width: 100%;
+				border-radius: var(--unit-8);
+				font-size: 20px;
+				font-weight: 400;
+				color: var(--text-primary);
+				text-align: center;
+				background: none;
+				border: none;
+				padding: 0;
+				transition: background-color 0.15s;
+
+				&:hover {
+					background: rgba(255, 255, 255, 0.1) !important;
+					color: var(--text-primary) !important;
+					border: none;
+				}
+			}
+
+			/* Today highlight */
+			&.ui-datepicker-today a,
+			&.ui-datepicker-today span {
+				background: rgba(32, 164, 152, 0.25) !important;
+				color: var(--brand-green) !important;
+				font-weight: 600;
+				border: 1px solid var(--brand-green) !important;
+			}
+
+			/* Selected day */
+			a.ui-state-active,
+			a.ui-state-highlight.ui-state-active {
+				background: var(--brand-green) !important;
+				color: var(--white) !important;
+				font-weight: 600;
+				border: none !important;
+			}
+		}
+	}
+}
+
+/* Remove all jQuery UI widget chrome */
+.ui-widget,
+.ui-widget-content,
+.ui-widget-header,
+.ui-state-default,
+.ui-state-hover,
+.ui-state-active,
+.ui-state-highlight,
+.ui-state-focus {
+	background-image: none;
+}
+
+.ui-widget-content {
+	left: 0 !important;
+	right: 0 !important;
+	bottom: 0 !important;
+	width: 100% !important;
+	z-index: 9999 !important;
+	border: 0 !important;
+}
+
+.ui-datepicker .ui-datepicker-prev, 
+.ui-datepicker .ui-datepicker-next {
+	position: relative;
+
+	a {
+		margin: 0!important;
+		top: 0;
+	}
+}
+
+.ui-datepicker {
+	z-index: 9999;
+	position: fixed !important;
+	top: unset !important;
+	bottom: 0 !important;
+	border-radius: var(--unit-24);
+	background: var(--background);
+}
+
+.datepicker {
+	background-image: svg-load('icon-calendar.svg');
+	background-repeat: no-repeat;
+	background-position: calc(100% - 18px) center;
+	background-size: 18px;
+}

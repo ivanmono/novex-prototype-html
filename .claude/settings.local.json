@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run:*)",
+      "mcp__figma__get_figma_data",
+      "Bash(node -e \":*)"
+    ]
+  }
+}

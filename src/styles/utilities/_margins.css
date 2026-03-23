@@ -1,0 +1,25 @@
+/* =============================================================
+  * Margin utility classes
+	 ============================================================= */
+
+.m {
+	&--top {
+		&--1-neg {
+			margin-top: calc(var(--unit-4) * -5);
+		}
+
+		&--bs {
+			margin-top: var(--unit-8);
+		}
+	}
+
+	&--bottom {
+		&--sm {
+			margin-bottom: var(--unit-4);
+		}
+
+		&--bs {
+			margin-bottom: var(--unit-8);
+		}
+	}
+}

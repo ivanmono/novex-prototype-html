@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=480, initial-scale=1">
+  <title>Novexx — Printers</title>
+  <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+<div class="device">
+  <div class="page">
+
+    <include src="partials/status-bar.html"></include>
+
+    <div class="page-header">
+      <div class="page-header__left">
+        <a href="menu.html" class="page-header__back" aria-label="Back to menu">
+          <i class="icon icon--arrow-left icon--md icon--white" aria-hidden="true"></i>
+        </a>
+        <h1 class="page-header__title">Printers</h1>
+      </div>
+    </div>
+
+    <main class="page__content page__content--list" role="main">
+
+      <!-- Printer list items -->
+      <div class="field-tile">
+        <div class="field-tile__btn field-tile__btn--static">
+          <div class="field-tile__content">
+            <div class="field-tile__label-row">
+              <span class="field-tile__label">Printer 1</span>
+              <span class="field-tile__dot field-tile__dot--success" aria-label="Online"></span>
+            </div>
+            <span class="field-tile__value">AP 6.4 — Online</span>
+          </div>
+          <i class="icon icon--edit icon--md icon--white" aria-hidden="true"></i>
+        </div>
+      </div>
+
+      <div class="field-tile">
+        <div class="field-tile__btn field-tile__btn--static">
+          <div class="field-tile__content">
+            <div class="field-tile__label-row">
+              <span class="field-tile__label">Printer 2</span>
+              <span class="field-tile__dot field-tile__dot--yellow" aria-label="Standby"></span>
+            </div>
+            <span class="field-tile__value">AP 6.4 — Stand By</span>
+          </div>
+          <i class="icon icon--edit icon--md icon--white" aria-hidden="true"></i>
+        </div>
+      </div>
+
+      <div class="field-tile field-tile--offline">
+        <div class="field-tile__btn field-tile__btn--static">
+          <div class="field-tile__content">
+            <div class="field-tile__label-row">
+              <span class="field-tile__label">Printer 3</span>
+              <span class="field-tile__dot field-tile__dot--grey" aria-label="Offline"></span>
+            </div>
+            <span class="field-tile__value">AP 6.4 — Offline</span>
+          </div>
+          <i class="icon icon--edit icon--md" aria-hidden="true"></i>
+        </div>
+      </div>
+
+    </main>
+
+    <include src="partials/bottom-nav-inner.html"></include>
+
+  </div>
+</div>
+<script src="../js/main.js"></script>
+</body>
+</html>

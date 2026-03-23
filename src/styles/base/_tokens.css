@@ -1,0 +1,128 @@
+/* =============================================================
+	 DESIGN TOKENS — Dark theme (default)
+	 Source: tokens.json → collection1.dark + gradients + shadows
+	 ============================================================= */
+:root {
+	/* Brand */
+	--brand-green:          #20a498;
+	--brand-green-dark:     #288959;
+	--brand-green-darker:   #1a7a71;
+	--brand-green-enh:      #88e6c6;
+	--brand-green-light:    #f0fdf4;
+
+	/* Red / danger */
+	--red:                  #e8413f;
+	--red-dark:             #ff194a;
+	--red-light:            #ff6479;
+
+	/* Grey scale */
+	--grey:                 #909aa9;
+	--grey-dark:            #b9bfca;
+	--grey-light:           #becbd7;
+	--white:                #ffffff;
+	--black:                #020202;
+
+	/* Backgrounds */
+	--background:           #080e1e;
+	--card-background:      #313648;
+	--form-background:      #4d5a67;
+
+	/* Text */
+	--text-primary:         #eff6ff;
+	--text-secondary:       #98a3b2;
+
+	/* Accent */
+	--navy:                 #79a3ff;
+	--navy-light:           #eff6ff;
+	--blue:                 #4f39f6;
+	--blue-light:           #eef2ff;
+
+	/* Status */
+	--success:              #22d464;
+	--yellow:               #ffcc04;
+	--yellow-light:         #fff8df;
+	--orange:               #ff601c;
+	--orange-light:         #fff7ed;
+	--purple:               #b34aff;
+	--purple-light:         #faf5ff;
+	--tirq:                 #20a498;
+	--tirq-pale:            #f0fdfa;
+
+	/* Menu */
+	--menu-accent:          #f0fdf4;
+	--menu-accent-bg:       #ffffff14;
+	--menu-initial:         #b9bfca;
+
+	/* Form */
+	--form-border:          #505d75;
+	--form-placeholder:     #a3b4c6;
+	--form-label:           #98a3b2;
+	--form-value:           #eff6ff;
+	--form-toggle:          #98a3b2;
+	--form-toggle-light:    #dae3ef;
+
+	/* Navigation */
+	--top-menu:             #bfcbd8;
+
+	/* Separators */
+	--separator:            #b9bfca;
+	--separator-light:      #505d75;
+
+	/* Keyboard */
+	--keyboard-pressed:     #98a3b2;
+
+	/* Gradients */
+	--gradient-stroke:           linear-gradient(146deg, #c6cbdd 0%, #2d303b 53.37%, #c6cbdd 100%);
+	--gradient-stroke-secondary: linear-gradient(99deg, #43464b 0%, #777f8f 48.08%, #59606d 100%);
+	--gradient-bg-primary:       linear-gradient(152deg, #313648 0%, #424756 100%);
+	--gradient-bg-secondary:     radial-gradient(46.66% 78.22% at 98.75% 0.31%, #4c546c 0%, #1d2028 100%);
+	--gradient-running:          linear-gradient(90deg, #313648 0%, #88e6c6 49.52%, #313648 100%);
+	--gradient-standby:          linear-gradient(90deg, #313648 0%, #ffcc04 49.52%, #313648 100%);
+	--gradient-error:            linear-gradient(90deg, #313648 0%, #ff6579 49.52%, #313648 100%);
+	--gradient-warning:          linear-gradient(90deg, #313648 0%, #ff194a 49.52%, #313648 100%);
+
+	/* Shadows */
+	--shadow-dd1:     0px 8px 18px 0px rgba(32, 60, 83, 0.15);
+	--shadow-dd2:     0px 0px 25px 0px rgba(136, 230, 198, 0.50);
+	--shadow-dd-red:  0px 0px 60px 0px rgba(255, 25, 74, 0.50);
+	--shadow-dd-green:0px 0px 60px 0px rgba(111, 203, 44, 0.50);
+
+	--unit-4: 4px;
+	--unit-8: 8px;
+	--unit-12: 12px;
+	--unit-14: 16px;
+	--unit-16: 16px;
+	--unit-18: 18px;
+	--unit-24: 24px;
+	--unit-32: 32px;
+	--unit-48: 48px;
+	--unit-60: 60px;
+}
+
+/* =============================================================
+	 LIGHT THEME OVERRIDES
+	 Activate with <html data-theme="light">
+	 ============================================================= */
+[data-theme="light"] {
+	--grey-dark:            #606b7a;
+	--background:           #f4f7fa;
+	--card-background:      #ffffff;
+	--text-primary:         #1a1a1a;
+	--success:              #23d465;
+	--brand-green-darker:   #1b7b72;
+
+	--menu-accent:          #88e6c6;
+	--menu-accent-bg:       #88e6c614;
+	--menu-initial:         #616b7b;
+
+	--form-border:          #b9bfca;
+	--form-placeholder:     #c3cfdb;
+	--form-label:           #616b7b;
+	--form-value:           #616b7b;
+	--form-toggle:          #98a4b3;
+	--form-toggle-light:    #e9edf3;
+
+	--top-menu:             #98a4b3;
+	--separator-light:      #dae0ec;
+	--keyboard-pressed:     #dadee5;
+}

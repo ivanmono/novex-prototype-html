@@ -1,0 +1,27 @@
+/* =============================================================
+	 CHART  (.chart)
+	 Container for ApexCharts instances.
+	 ============================================================= */
+.chart {
+	display: flex;
+	flex-direction: column;
+	gap: var(--unit-24);
+	width: 100%;
+	border-radius: var(--unit-12);
+	/* overflow: hidden; */
+
+	/* ApexCharts render target */
+	&__area {
+		width: 100%;
+		border-radius: var(--unit-12);
+		overflow: hidden;
+		overflow: hidden;
+
+		/* Let ApexCharts size itself */
+		& .apexcharts-canvas { display: block; }
+	}
+}
+
+.apexcharts-svg {
+	background: none !important; /* Override ApexCharts' default white background */
+}

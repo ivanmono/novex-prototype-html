@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=480, initial-scale=1">
+  <title>Novexx — IO-Signals Chart 2</title>
+  <link rel="stylesheet" href="../styles/main.css">
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+</head>
+<body>
+<div class="device">
+  <div class="page">
+
+    <include src="partials/status-bar.html"></include>
+
+    <div class="page-header">
+      <div class="page-header__left">
+        <a href="chart.html" class="page-header__back" aria-label="Back">
+          <i class="icon icon--arrow-left icon--md icon--white" aria-hidden="true"></i>
+        </a>
+        <h1 class="page-header__title">IO-Signals</h1>
+      </div>
+    </div>
+
+    <main class="page__content page__content--list" role="main">
+
+      <div class="chart">
+        <div class="chart__area" id="chart-area" role="img" aria-label="IO-Signals bar chart — Digital and Analog readings"></div>
+      </div>
+
+    </main>
+
+    <include src="partials/bottom-nav-inner.html"></include>
+
+  </div>
+</div>
+<script src="../js/main.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var options = {
+      chart: {
+        type: 'bar',
+        height: 320,
+        background: '#313648',
+        toolbar: { show: false },
+        fontFamily: "'Figtree', sans-serif",
+        animations: { enabled: true, speed: 600 },
+      },
+      theme: { mode: 'dark' },
+      colors: ['#ff601c', '#79a3ff'],
+      series: [
+        {
+          name: 'Digital',
+          data: [44, 55, 41, 67, 22, 43, 60, 35],
+        },
+        {
+          name: 'Analog',
+          data: [31, 49, 62, 28, 54, 38, 71, 45],
+        },
+      ],
+      xaxis: {
+        categories: ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su', 'Mo'],
+        labels: {
+          style: { colors: '#98a3b2', fontSize: '11px' },
+        },
+        axisBorder: { show: false },
+        axisTicks: { show: false },
+      },
+      yaxis: {
+        labels: {
+          style: { colors: '#98a3b2', fontSize: '11px' },
+          formatter: function (val) { return val + ' mA'; },
+        },
+      },
+      grid: {
+        borderColor: '#505d75',
+        strokeDashArray: 3,
+        xaxis: { lines: { show: false } },
+      },
+      plotOptions: {
+        bar: {
+          borderRadius: 4,
+          columnWidth: '55%',
+          dataLabels: { position: 'top' },
+        },
+      },
+      dataLabels: { enabled: false },
+      legend: {
+        show: true,
+        position: 'bottom',
+        labels: { colors: '#98a3b2' },
+        markers: { width: 10, height: 10, radius: 4 },
+        itemMargin: { horizontal: 16 },
+      },
+      tooltip: {
+        theme: 'dark',
+        style: { fontSize: '12px', fontFamily: "'Figtree', sans-serif" },
+      },
+    };
+
+    var chart = new ApexCharts(document.getElementById('chart-area'), options);
+    chart.render();
+  });
+</script>
+</body>
+</html>

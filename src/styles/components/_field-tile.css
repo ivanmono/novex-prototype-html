@@ -1,0 +1,65 @@
+/* =============================================================
+	 FIELD TILE  (.field-tile)
+	 Edit User row: label | value | color dot | arrow
+	 ============================================================= */
+.field-tile {
+	display: block;
+	padding: 1px;
+	border-radius: var(--unit-24);
+	background: var(--gradient-stroke-secondary);
+
+	&--offline { opacity: 0.5; }
+
+	&__btn {
+		display: flex;
+		align-items: center;
+		gap: var(--unit-24);
+		width: 100%;
+		padding: var(--unit-24);
+		border-radius: 23px;
+		background: var(--card-background);
+		text-align: left;
+		transition: filter 0.15s;
+
+		&:active      { filter: brightness(1.25); }
+		&--static     { cursor: default; }
+	}
+
+	&__content {
+		display: flex;
+		flex-direction: column;
+		gap: var(--unit-4);
+		flex: 1;
+	}
+
+	&__label-row {
+		display: flex;
+		align-items: center;
+		gap: var(--unit-12);
+	}
+
+	&__label {
+		font-size: 18px;
+		font-weight: 400;
+		color: var(--text-primary);
+		opacity: 0.75;
+	}
+
+	&__dot {
+		width: var(--unit-18);
+		height: var(--unit-18);
+		border-radius: 50%;
+		flex-shrink: 0;
+
+		&--success { background: var(--success); }
+		&--yellow  { background: var(--yellow); }
+		&--purple  { background: var(--purple); }
+		&--grey    { background: var(--grey); }
+	}
+
+	&__value {
+		font-size: 24px;
+		font-weight: 700;
+		color: var(--text-primary);
+	}
+}

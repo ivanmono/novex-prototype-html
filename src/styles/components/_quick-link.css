@@ -1,0 +1,51 @@
+/* =============================================================
+	 QUICK LINK TILE  (.quick-link)
+	 Home screen 2×2 settings grid.
+	 ============================================================= */
+.quick-links {
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: var(--unit-8);
+}
+
+.quick-link {
+	display: block;
+	padding: 1px;
+	border-radius: var(--unit-24);
+	background: var(--gradient-stroke-secondary);
+	transition: filter 0.15s;
+
+	&:active    { filter: brightness(1.25); }
+	&--disabled { opacity: 0.40; cursor: not-allowed; pointer-events: none; }
+
+	&__inner {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: var(--unit-24);
+		border-radius: 23px;
+		background: var(--gradient-bg-primary);
+	}
+
+	&__text {
+		display: flex;
+		flex-direction: column;
+		gap: 2px;
+	}
+
+	&__category {
+		font-size: 18px;
+		font-weight: 400;
+		color: var(--text-primary);
+		opacity: 0.50;
+		line-height: 1.2;
+	}
+
+	&__name {
+		font-size: 18px;
+		font-weight: 600;
+		color: var(--text-primary);
+		line-height: 1.2;
+	}
+}

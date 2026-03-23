@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=480, initial-scale=1">
+  <title>Novexx — IO-Signals Chart 3</title>
+  <link rel="stylesheet" href="../styles/main.css">
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+</head>
+<body>
+<div class="device">
+  <div class="page">
+
+    <include src="partials/status-bar.html"></include>
+
+    <div class="page-header">
+      <div class="page-header__left">
+        <a href="chart-2.html" class="page-header__back" aria-label="Back">
+          <i class="icon icon--arrow-left icon--md icon--white" aria-hidden="true"></i>
+        </a>
+        <h1 class="page-header__title">IO-Signals</h1>
+      </div>
+    </div>
+
+    <main class="page__content page__content--list" role="main">
+
+      <div class="chart">
+        <div class="chart__area" id="chart-area" role="img" aria-label="IO-Signals mixed chart — Sensor A area and Sensor B line"></div>
+      </div>
+
+    </main>
+
+    <include src="partials/bottom-nav-inner.html"></include>
+
+  </div>
+</div>
+<script src="../js/main.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var options = {
+      chart: {
+        type: 'line',
+        height: 320,
+        background: '#313648',
+        toolbar: { show: false },
+        fontFamily: "'Figtree', sans-serif",
+        animations: { enabled: true, speed: 600 },
+      },
+      theme: { mode: 'dark' },
+      colors: ['#ff601c', '#79a3ff'],
+      series: [
+        {
+          name: 'Sensor A',
+          type: 'area',
+          data: [30, 48, 42, 61, 55, 70, 63, 78, 68, 74, 60, 82],
+        },
+        {
+          name: 'Sensor B',
+          type: 'line',
+          data: [12, 20, 16, 28, 22, 34, 29, 40, 35, 44, 38, 50],
+        },
+      ],
+      xaxis: {
+        categories: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
+        labels: {
+          style: { colors: '#98a3b2', fontSize: '11px' },
+        },
+        axisBorder: { show: false },
+        axisTicks: { show: false },
+      },
+      yaxis: [
+        {
+          seriesName: 'Sensor A',
+          labels: {
+            style: { colors: '#ff601c', fontSize: '11px' },
+            formatter: function (val) { return val + ' V'; },
+          },
+        },
+        {
+          seriesName: 'Sensor B',
+          opposite: true,
+          labels: {
+            style: { colors: '#79a3ff', fontSize: '11px' },
+            formatter: function (val) { return val + ' mA'; },
+          },
+        },
+      ],
+      grid: {
+        borderColor: '#505d75',
+        strokeDashArray: 3,
+        xaxis: { lines: { show: false } },
+      },
+      fill: {
+        type: ['gradient', 'solid'],
+        gradient: {
+          shadeIntensity: 1,
+          opacityFrom: 0.35,
+          opacityTo: 0.02,
+          stops: [0, 90, 100],
+        },
+      },
+      stroke: {
+        curve: 'smooth',
+        width: [2.5, 2.5],
+        dashArray: [0, 4],
+      },
+      dataLabels: { enabled: false },
+      legend: {
+        show: true,
+        position: 'bottom',
+        labels: { colors: '#98a3b2' },
+        markers: { width: 10, height: 10, radius: 50 },
+        itemMargin: { horizontal: 16 },
+      },
+      tooltip: {
+        theme: 'dark',
+        style: { fontSize: '12px', fontFamily: "'Figtree', sans-serif" },
+        shared: true,
+        intersect: false,
+      },
+    };
+
+    var chart = new ApexCharts(document.getElementById('chart-area'), options);
+    chart.render();
+  });
+</script>
+</body>
+</html>

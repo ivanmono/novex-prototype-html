@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=480, initial-scale=1">
+  <title>Novexx — Home (Stand By)</title>
+  <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+<div class="device">
+  <div class="page">
+
+    <include src="partials/status-bar--standby.html"></include>
+
+    <main class="page__content page__content--home">
+      <div class="page__glow" aria-hidden="true"></div>
+
+      <img src="../assets/images/logo.svg" alt="Novexx Solutions" class="home__logo">
+
+      <!-- Play button — active in standby -->
+      <button class="play-btn" aria-label="Machine on stand by — click to start">
+        <div class="play-btn__ring">
+          <div class="play-btn__inner">
+            <i class="icon icon--play-big icon--xl icon--white" aria-hidden="true"></i>
+          </div>
+        </div>
+      </button>
+
+      <!-- Machine name + status pill -->
+      <div class="home__machine-info">
+        <span class="t-hero">Line Name 5468</span>
+        <span class="status-pill status-pill--standby" role="status">STAND BY</span>
+      </div>
+
+      <!-- Quick link tiles — dimmed in standby -->
+      <div class="quick-links" role="navigation" aria-label="Quick links">
+        <div class="quick-link quick-link--disabled">
+          <div class="quick-link__inner">
+            <div class="quick-link__text">
+              <span class="quick-link__category">Playground</span>
+              <span class="quick-link__name">Sliders</span>
+            </div>
+            <i class="icon icon--arrow-right-alt icon--sm icon--muted" aria-hidden="true"></i>
+          </div>
+        </div>
+
+        <div class="quick-link quick-link--disabled">
+          <div class="quick-link__inner">
+            <div class="quick-link__text">
+              <span class="quick-link__category">Playground</span>
+              <span class="quick-link__name">Select Drawer</span>
+            </div>
+            <i class="icon icon--arrow-right-alt icon--sm icon--muted" aria-hidden="true"></i>
+          </div>
+        </div>
+
+        <div class="quick-link quick-link--disabled">
+          <div class="quick-link__inner">
+            <div class="quick-link__text">
+              <span class="quick-link__category">Playground</span>
+              <span class="quick-link__name">Input Fields</span>
+            </div>
+            <i class="icon icon--arrow-right-alt icon--sm icon--muted" aria-hidden="true"></i>
+          </div>
+        </div>
+
+        <div class="quick-link quick-link--disabled">
+          <div class="quick-link__inner">
+            <div class="quick-link__text">
+              <span class="quick-link__category">Production</span>
+              <span class="quick-link__name">Formats/Recipes</span>
+            </div>
+            <i class="icon icon--arrow-right-alt icon--sm icon--muted" aria-hidden="true"></i>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <include src="partials/bottom-nav-home--standby.html"></include>
+
+  </div>
+</div>
+<script src="../js/main.js"></script>
+</body>
+</html>

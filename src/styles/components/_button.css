@@ -1,0 +1,44 @@
+/* =============================================================
+	 BUTTON  (.btn)
+	 ============================================================= */
+.btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	padding: var(--unit-16) var(--unit-24);
+	border-radius: var(--unit-16);
+	font-size: 20px;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	transition: background-color 0.15s, opacity 0.15s;
+	cursor: pointer;
+
+	&--primary {
+		background: var(--brand-green);
+		color: var(--white);
+
+		&:active { background: var(--brand-green-darker); }
+	}
+
+	&--hidden {
+		visibility: hidden;
+		pointer-events: none;
+	}
+
+	/* Add New / small action button in page header */
+	&--action {
+		padding: var(--unit-12) var(--unit-24);
+		font-size: 16px;
+		border-radius: var(--unit-24);
+		width: auto;
+		white-space: nowrap;
+	}
+
+	&--disabled {
+		opacity: 0.40;
+		cursor: not-allowed;
+		pointer-events: none;
+	}
+}

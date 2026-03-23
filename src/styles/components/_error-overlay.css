@@ -1,0 +1,84 @@
+/* =============================================================
+	 ERROR OVERLAY  (.error-overlay)
+	 Floating card — Error list with Retry CTA.
+	 ============================================================= */
+
+/* Full-screen backdrop */
+.error-overlay {
+	width: 100%;
+	background: var(--gradient-bg-primary);
+	border-radius: var(--unit-24);
+	box-shadow: var(--shadow-dd-red);
+	overflow: hidden;
+
+	&__backdrop {
+		position: fixed;
+		inset: 0;
+		background: rgba(0, 0, 0, 0.50);
+		z-index: 40;
+		display: flex;
+		align-items: flex-end;
+		padding: var(--unit-24);
+	}
+
+	&__header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 20px var(--unit-24) var(--unit-16);
+		border-bottom: 1px solid var(--separator-light);
+	}
+
+	&__title {
+		font-size: 20px;
+		font-weight: 700;
+		color: var(--text-primary);
+	}
+
+	&__list {
+		display: flex;
+		flex-direction: column;
+		padding: 0 var(--unit-24);
+	}
+
+	&__item {
+		display: flex;
+		align-items: flex-start;
+		gap: var(--unit-12);
+		padding: var(--unit-16) 0;
+		border-bottom: 1px solid var(--separator-light);
+
+		&:last-child { border-bottom: none; }
+	}
+
+	&__item-icon {
+		flex-shrink: 0;
+		width: 20px;
+		height: 20px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-top: 2px;
+	}
+
+	&__item-content {
+		display: flex;
+		flex-direction: column;
+		gap: var(--unit-4);
+	}
+
+	&__item-title {
+		font-size: var(--unit-16);
+		font-weight: 600;
+		color: var(--red-light);
+	}
+
+	&__item-desc {
+		font-size: var(--unit-14);
+		font-weight: 400;
+		color: var(--text-primary);
+		opacity: 0.75;
+	}
+
+	&__footer { padding: var(--unit-16) var(--unit-24) var(--unit-24); }
+}

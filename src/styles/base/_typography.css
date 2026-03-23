@@ -1,0 +1,31 @@
+/* =============================================================
+	 TYPOGRAPHY
+	 Fonts: Figtree (UI) + Fira Code (parameter values)
+	 ============================================================= */
+@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700&family=Fira+Code:wght@400;600&display=swap');
+
+body {
+	font-family: 'Figtree', sans-serif;
+	font-size: 16px;
+	line-height: 1.2;
+	color: var(--text-primary);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/* Type scale */
+.t-hero    { font-size: 32px; font-weight: 600; line-height: 1.2; }
+.t-title   { font-size: 24px; font-weight: 700; line-height: 1.2; }
+.t-body-lg { font-size: 20px; font-weight: 400; line-height: 1.2; }
+.t-body    { font-size: 18px; font-weight: 400; line-height: 1.2; }
+.t-body-sm { font-size: 16px; font-weight: 400; line-height: 1.2; }
+.t-label   { font-size: 14px; font-weight: 400; line-height: 1.2; }
+.t-caption { font-size: 12px; font-weight: 600; line-height: 1.2; letter-spacing: 0.15em; text-transform: uppercase; }
+
+/* Monospace for parameter values */
+.t-param       { font-family: 'Fira Code', monospace; font-size: 18px; font-weight: 600; }
+.t-param--thin { font-family: 'Fira Code', monospace; font-size: 18px; font-weight: 400; }
+
+/* Opacity helpers */
+.opacity-75 { opacity: 0.75; }
+.opacity-50 { opacity: 0.50; }

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=480, initial-scale=1">
+  <title>Novexx — Edit User</title>
+  <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+<div class="device">
+  <div class="page">
+
+    <include src="partials/status-bar.html"></include>
+
+    <div class="page-header">
+      <div class="page-header__left">
+        <a href="manage-users.html" class="page-header__back" aria-label="Back to user list">
+          <i class="icon icon--arrow-left icon--md icon--white" aria-hidden="true"></i>
+        </a>
+        <h1 class="page-header__title">Edit User</h1>
+      </div>
+    </div>
+
+    <!-- Field tiles -->
+    <main class="page__content page__content--tight-sm" role="main">
+
+      <div class="field-tile">
+        <a href="playground-role.html" class="field-tile__btn" aria-label="Edit name: Alice Müller">
+          <div class="field-tile__content">
+            <div class="field-tile__label-row">
+              <span class="field-tile__label">Name</span>
+            </div>
+            <span class="field-tile__value">Alice Müller</span>
+          </div>
+          <i class="icon icon--arrow-right icon--lg icon--white" aria-hidden="true"></i>
+        </a>
+      </div>
+
+      <div class="field-tile">
+        <a href="playground-role.html" class="field-tile__btn" aria-label="Edit role: Administrator">
+          <div class="field-tile__content">
+            <div class="field-tile__label-row">
+              <span class="field-tile__label">Role</span>
+            </div>
+            <span class="field-tile__value">Administrator</span>
+          </div>
+          <i class="icon icon--arrow-right icon--lg icon--white" aria-hidden="true"></i>
+        </a>
+      </div>
+
+      <div class="field-tile">
+        <a href="playground-role.html" class="field-tile__btn" aria-label="Edit level: Level 3">
+          <div class="field-tile__content">
+            <div class="field-tile__label-row">
+              <span class="field-tile__label">Level</span>
+              <!-- Level 3 indicator dot — purple -->
+              <span class="field-tile__dot field-tile__dot--purple" aria-hidden="true"></span>
+            </div>
+            <span class="field-tile__value">Level 3</span>
+          </div>
+          <i class="icon icon--arrow-right icon--lg icon--white" aria-hidden="true"></i>
+        </a>
+      </div>
+
+      <div class="field-tile">
+        <a href="manage-users-password.html" class="field-tile__btn" aria-label="Edit password">
+          <div class="field-tile__content">
+            <div class="field-tile__label-row">
+              <span class="field-tile__label">Password</span>
+            </div>
+            <span class="field-tile__value">••••••••</span>
+          </div>
+          <i class="icon icon--arrow-right icon--lg icon--white" aria-hidden="true"></i>
+        </a>
+      </div>
+
+    </main>
+
+    <include src="partials/bottom-nav-inner.html"></include>
+
+  </div>
+</div>
+<script src="../js/main.js"></script>
+</body>
+</html>

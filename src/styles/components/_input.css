@@ -1,0 +1,103 @@
+/* =============================================================
+	 INPUT COMPONENTS
+	 .input          — bare input (login, edit field)
+	 .input-field    — label + bordered input + optional unit suffix
+	 .input-group    — row or column container for input-fields
+	 ============================================================= */
+
+/* ── Bare input (.input) ─────────────────────────────────── */
+.input {
+	width: 100%;
+	background: var(--form-background);
+	padding: var(--unit-16) var(--unit-24);
+	border-radius: var(--unit-24);
+	font-size: 24px;
+	color: var(--text-primary);
+	border: 1px solid var(--text-secondary);
+	transition: border-color 0.15s;
+
+	&::placeholder { color: var(--form-placeholder); }
+	&:focus        { border-color: var(--brand-green); }
+}
+
+/* ── Labelled input field (.input-field) ─────────────────── */
+.input-field {
+	display: flex;
+	flex-direction: column;
+	gap: var(--unit-12);
+
+	&__label {
+		font-size: 18px;
+		font-weight: 400;
+		color: var(--text-primary);
+		opacity: 0.75;
+	}
+
+	/* Gradient border wrapper */
+	&__border {
+		padding: 1px;
+		border-radius: var(--unit-16);
+		background: var(--gradient-stroke-secondary);
+	}
+
+	&__row {
+		display: flex;
+		border-radius: var(--unit-12);
+		overflow: hidden;
+	}
+
+	&__control {
+		flex: 1;
+		min-width: 0;
+		padding: var(--unit-16) var(--unit-24);
+		background: var(--form-background);
+		font-size: 24px;
+		color: var(--text-primary);
+		border: none;
+		outline: none;
+
+		&::placeholder { color: var(--form-placeholder); }
+
+		/* Numbers right-aligned, text left-aligned */
+		&--number { text-align: right; }
+		&--text   { text-align: left; }
+	}
+
+	&__unit {
+		display: flex;
+		align-items: center;
+		padding: 0 var(--unit-12);
+		flex-shrink: 0;
+		background: var(--card-background);
+		font-size: 18px;
+		font-weight: 400;
+		color: var(--text-primary);
+		opacity: 0.75;
+		white-space: nowrap;
+	}
+}
+
+/* ── Stacked form (.form-stack) ──────────────────────────── */
+.form-stack {
+	display: flex;
+	flex-direction: column;
+	gap: var(--unit-24);
+	border: 0;
+}
+
+/* ── Input group (.input-group) ──────────────────────────── */
+.input-group {
+	display: flex;
+	gap: var(--unit-16);
+	padding: var(--unit-12);
+	background-color: var(--card-background);
+	border-radius: var(--unit-24);
+
+	&--row {
+		flex-direction: row;
+
+		& .input-field { flex: 1; min-width: 0; }
+	}
+
+	&--column { flex-direction: column; }
+}

@@ -1,0 +1,109 @@
+/* =============================================================
+	 PAGE SHELL  (.page)
+	 Full-height flex column — contains status-bar, content, bottom-nav.
+	 ============================================================= */
+.page {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	position: relative;
+	background: var(--gradient-bg-secondary);
+
+	&__content {
+		flex: 1 1 0;
+		overflow-y: auto;
+		display: flex;
+		flex-direction: column;
+		-webkit-overflow-scrolling: touch;
+		scrollbar-width: none;
+
+		&::-webkit-scrollbar { display: none; }
+
+		/* Home page content — centered items with padding */
+		&--home {
+			align-items: center;
+			padding: var(--unit-16) var(--unit-24) var(--unit-12);
+			gap: var(--unit-48);
+			position: relative;
+		}
+
+		/* Standard inner-page content */
+		&--inner {
+			padding: var(--unit-24);
+			gap: var(--unit-24);
+		}
+
+		/* Compact list — tight spacing, normal padding */
+		&--tight {
+			padding: var(--unit-24);
+			gap: 9px;
+		}
+
+		/* Compact list — tight spacing, smaller top padding */
+		&--tight-sm {
+			padding: var(--unit-16) var(--unit-24);
+			gap: 9px;
+		}
+
+		/* List / chart pages — medium gap */
+		&--list {
+			padding: var(--unit-24);
+			gap: var(--unit-16);
+			overflow-y: auto;
+		}
+
+		/* Slider multi / level pages — wide gap */
+		&--wide {
+			padding: var(--unit-24);
+			gap: var(--unit-32);
+		}
+
+		/* Slider detail — vertically centered, wide gap */
+		&--centered {
+			padding: var(--unit-24);
+			gap: var(--unit-32);
+			justify-content: center;
+		}
+
+		/* Keyboard pages — reduced bottom padding */
+		&--keyboard {
+			padding: var(--unit-24) var(--unit-24) var(--unit-8);
+			gap: var(--unit-16);
+		}
+
+		/* Menu tile grid — minimal padding, no gap (grid handles it) */
+		&--menu {
+			padding: var(--unit-16);
+		}
+	}
+
+	/* Decorative blurred glow — used on home page */
+	&__glow {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: 320px;
+		border-radius: 50%;
+		background: #88e6c6;
+		filter: blur(98px);
+		opacity: 0.10;
+		pointer-events: none;
+
+		&--error { background: var(--red-dark); }
+	}
+}
+
+/* ── Home page elements ──────────────────────────────────── */
+.home__logo {
+	width: 150px;
+}
+
+.home__machine-info {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: var(--unit-8);
+}

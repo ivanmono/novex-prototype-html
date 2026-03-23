@@ -1,0 +1,173 @@
+/* =============================================================
+	 SELECT DRAWER  (.select-drawer)
+	 Trigger button + slide-up bottom sheet overlay.
+	 ============================================================= */
+.select-drawer {
+	display: flex;
+	flex-direction: column;
+	gap: var(--unit-12);
+
+	&__label {
+		font-size: 18px;
+		font-weight: 400;
+		color: var(--text-primary);
+		opacity: 0.75;
+	}
+
+	/* Gradient border around trigger */
+	&__border {
+		padding: 1px;
+		border-radius: var(--unit-24);
+		background: var(--gradient-stroke-secondary);
+	}
+
+	&__trigger {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+		padding: var(--unit-16) var(--unit-24);
+		border-radius: 23px;
+		background: var(--form-background);
+		text-align: left;
+		transition: filter 0.15s;
+
+		&:active { filter: brightness(1.1); }
+	}
+
+	&__trigger-text {
+		font-size: 24px;
+		font-weight: 400;
+		color: var(--text-primary);
+	}
+
+	&__chevron {
+		width: 20px;
+		height: 20px;
+		flex-shrink: 0;
+		color: var(--text-primary);
+		opacity: 0.75;
+		transition: transform 0.3s;
+
+		&--open { transform: rotate(180deg); }
+	}
+
+	/* ── Overlay ──────────────────────────────────────────────── */
+	&__overlay {
+		position: fixed;
+		inset: 0;
+		z-index: 50;
+		pointer-events: none;
+		transition: all 0.3s;
+
+		&--open { pointer-events: auto; }
+	}
+
+	&__backdrop {
+		position: absolute;
+		inset: 0;
+		background: rgba(0, 0, 0, 0.50);
+		opacity: 0;
+		transition: opacity 0.3s;
+
+		.select-drawer__overlay--open & { opacity: 1; }
+	}
+
+	/* Slide-up panel */
+	&__panel {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		border-radius: var(--unit-24) var(--unit-24) 0 0;
+		background: var(--background);
+		transform: translateY(100%);
+		transition: transform 0.3s ease-out;
+
+		.select-drawer__overlay--open & { transform: translateY(0); }
+	}
+
+	/* Drag handle */
+	&__handle {
+		display: flex;
+		justify-content: center;
+		padding: var(--unit-12) 0 var(--unit-4);
+	}
+
+	&__handle-bar {
+		width: 40px;
+		height: var(--unit-4);
+		border-radius: 2px;
+		background: var(--text-secondary);
+		opacity: 0.30;
+	}
+
+	/* Options list */
+	&__options {
+		overflow-y: auto;
+		max-height: 55vh;
+		padding: 0 var(--unit-32) 0 var(--unit-24);
+	}
+
+	&__option {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+		padding: var(--unit-24) 0;
+		text-align: left;
+		transition: opacity 0.15s;
+		border-bottom: 1px solid #515e76;
+
+		&:last-child { border-bottom: none; }
+		&:active     { opacity: 0.7; }
+
+		/* Standalone card variant — no border, own background */
+		&--card {
+			padding: var(--unit-16) var(--unit-24);
+			background: var(--card-background);
+			border-radius: var(--unit-16);
+			border-bottom: none;
+
+			/* Default: show radio, hide check */
+			.select-drawer__check { display: none; }
+
+			/* Checked state via CSS only */
+			input:checked ~ .select-drawer__option-label {
+				font-weight: 600;
+				opacity: 1;
+			}
+			input:checked ~ .select-drawer__radio { display: none; }
+			input:checked ~ .select-drawer__check  { display: block; }
+		}
+	}
+
+	&__option-label {
+		font-size: 20px;
+		color: var(--text-primary);
+		opacity: 0.75;
+		font-weight: 400;
+		transition: opacity 0.15s;
+
+		&--selected {
+			font-weight: 600;
+			opacity: 1;
+		}
+	}
+
+	&__check {
+		width: var(--unit-24);
+		height: var(--unit-24);
+		flex-shrink: 0;
+	}
+
+	&__radio {
+		width: var(--unit-18);
+		height: var(--unit-18);
+		border-radius: 50%;
+		border: 1px solid rgba(255, 255, 255, 0.50);
+		flex-shrink: 0;
+	}
+
+	&__safe { height: var(--unit-24); }
+}

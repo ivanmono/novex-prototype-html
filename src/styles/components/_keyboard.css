@@ -1,0 +1,59 @@
+/* =============================================================
+	 KEYBOARD OVERLAY  (.keyboard)
+	 Full QWERTY / numeric keyboard overlay on password screens.
+	 ============================================================= */
+.keyboard {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	padding: var(--unit-12) var(--unit-8) var(--unit-16);
+	background: var(--background);
+	border-top: 1px solid var(--separator-light);
+
+	&__row {
+		display: flex;
+		justify-content: center;
+		gap: 5px;
+	}
+
+	&__key {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		min-width: 38px;
+		height: 46px;
+		padding: 0 var(--unit-8);
+		border-radius: var(--unit-8);
+		background: var(--card-background);
+		font-size: 16px;
+		font-weight: 500;
+		color: var(--text-primary);
+		cursor: pointer;
+		transition: background-color 0.1s;
+		flex: 1;
+		max-width: 44px;
+
+		&:active { background: var(--keyboard-pressed); }
+
+		/* Wide keys: Space, Delete, Return */
+		&--wide   { max-width: 80px;  flex: 2; font-size: 13px; }
+		&--widest { max-width: 160px; flex: 4; }
+
+		/* Special action keys */
+		&--action {
+			background: var(--form-background);
+			font-size: 13px;
+			font-weight: 600;
+		}
+	}
+
+	/* Numeric keyboard — larger keys */
+	&--numeric {
+		& .keyboard__key {
+			font-size: 20px;
+			font-weight: 600;
+			max-width: none;
+			height: 56px;
+		}
+	}
+}

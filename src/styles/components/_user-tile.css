@@ -1,0 +1,66 @@
+/* =============================================================
+	 USER TILE  (.user-tile)
+	 Manage Users list item: level badge | name | role | edit icon
+	 ============================================================= */
+.user-tile {
+	display: block;
+	padding: 1px;
+	border-radius: var(--unit-24);
+	background: var(--gradient-stroke-secondary);
+
+	&__inner {
+		display: flex;
+		align-items: center;
+		gap: var(--unit-24);
+		padding: var(--unit-24);
+		border-radius: 23px;
+		background: var(--card-background);
+	}
+
+	&__info {
+		display: flex;
+		flex-direction: column;
+		gap: var(--unit-8);
+		flex: 1;
+	}
+
+	&__level {
+		display: inline-flex;
+		align-items: center;
+		padding: var(--unit-4) var(--unit-12);
+		border-radius: 9999px;
+		font-size: 12px;
+		font-weight: 600;
+		color: var(--black);
+		align-self: flex-start;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+
+		&--1 { background: var(--navy); }
+		&--2 { background: var(--orange); }
+		&--3 { background: var(--purple); }
+	}
+
+	&__name {
+		font-size: 24px;
+		font-weight: 700;
+		color: var(--text-primary);
+		line-height: 1;
+	}
+
+	&__role {
+		font-size: 20px;
+		font-weight: 400;
+		color: var(--text-primary);
+		opacity: 0.75;
+		line-height: 1.2;
+	}
+
+	&__edit {
+		flex-shrink: 0;
+		opacity: 0.75;
+		transition: opacity 0.15s;
+
+		&:active { opacity: 1; }
+	}
+}

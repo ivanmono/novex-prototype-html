@@ -1,0 +1,65 @@
+/* =============================================================
+	 CARD  (.card)
+	 Dark rounded surface with gradient border stroke.
+	 ============================================================= */
+
+/* Gradient border wrapper — 1px stroke via padding trick */
+.card-border {
+	padding: 1px;
+	border-radius: var(--unit-24);
+	background: var(--gradient-stroke-secondary);
+}
+
+.card {
+	background: var(--card-background);
+	border-radius: 23px;
+	padding: var(--unit-24);
+
+	/* Settings / quick-link card — used on home screen 2×2 grid */
+	&--settings {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: var(--unit-12) var(--unit-12) var(--unit-12) var(--unit-16);
+		background: var(--gradient-bg-primary);
+		border-radius: 23px;
+	}
+
+	&__category {
+		font-size: 18px;
+		font-weight: 400;
+		color: var(--text-primary);
+		opacity: 0.5;
+		line-height: 1.2;
+	}
+
+	&__name {
+		font-size: 18px;
+		font-weight: 600;
+		color: var(--text-primary);
+		line-height: 1.2;
+	}
+}
+
+/* Error banner — below home content, above bottom nav */
+.error-banner {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: var(--unit-12) var(--unit-16);
+	background: rgba(232, 65, 63, 0.10);
+	border-top: 1px solid rgba(232, 65, 63, 0.30);
+	flex-shrink: 0;
+
+	&__left {
+		display: flex;
+		align-items: center;
+		gap: var(--unit-8);
+	}
+
+	&__text {
+		font-size: 14px;
+		font-weight: 600;
+		color: var(--red-light);
+	}
+}

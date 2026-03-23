@@ -1,0 +1,126 @@
+/* =============================================================
+	 ICON SYSTEM  (.icon)
+	 <i class="icon icon--wifi"></i>
+	 SVGs loaded via postcss-inline-svg from src/assets/icons/.
+	 Default color: #BFCBD8 (nav gray — already baked into SVGs).
+	 Color modifiers use CSS filter for colorization.
+	 ============================================================= */
+
+.icon {
+	display: inline-block;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+	flex-shrink: 0;
+
+	/* ── Size modifiers ──────────────────────────────────────── */
+	&--xs { width: var(--unit-16); height: var(--unit-16); }
+	&--sm { width: var(--unit-24); height: var(--unit-24); }
+	&--md { width: var(--unit-32); height: var(--unit-32); }
+	&--lg { width: 42px; height: 42px; }
+	&--xl { width: var(--unit-48); height: var(--unit-48); }
+
+	/* ── Color filter modifiers ──────────────────────────────── */
+	&--white   { filter: brightness(0) invert(1); }
+	/* teal / brand green #20a498 */
+	&--brand   { filter: invert(52%) sepia(55%) saturate(500%) hue-rotate(147deg) brightness(90%); }
+	/* navy #79a3ff */
+	&--navy    { filter: invert(70%) sepia(30%) saturate(700%) hue-rotate(195deg) brightness(115%); }
+	/* orange #ff601c */
+	&--orange  { filter: invert(47%) sepia(83%) saturate(2000%) hue-rotate(8deg) brightness(105%); }
+	/* purple #b34aff */
+	&--purple  { filter: invert(44%) sepia(76%) saturate(1000%) hue-rotate(257deg) brightness(105%); }
+	/* success green #22d464 */
+	&--success { filter: invert(67%) sepia(69%) saturate(531%) hue-rotate(88deg) brightness(100%); }
+	/* yellow #ffcc04 */
+	&--yellow  { filter: invert(84%) sepia(81%) saturate(600%) hue-rotate(5deg) brightness(105%); }
+	/* red-light #ff6479 */
+	&--danger  { filter: invert(55%) sepia(50%) saturate(800%) hue-rotate(310deg) brightness(115%); }
+	/* dim / muted */
+	&--muted   { opacity: 0.40; }
+
+	/* ── Individual icon backgrounds ─────────────────────────── */
+	/* postcss-inline-svg resolves from src/assets/icons/ (configured in postcss.config.js) */
+	&--alert-clipboard    { background-image: svg-load('icon-alert-clipboard.svg'); }
+	&--antenna            { background-image: svg-load('icon-antena.svg'); }
+	&--arrow-left         { background-image: svg-load('icon-arrow-left.svg'); }
+	&--arrow-right-alt    { background-image: svg-load('icon-arrow-right-alt.svg'); }
+	&--arrow-right        { background-image: svg-load('icon-arrow-right.svg'); }
+	&--arrow-top-bold     { background-image: svg-load('icon-arrow-top-bold.svg'); }
+	&--back-circle        { background-image: svg-load('icon-back-circle.svg'); }
+	&--battery            { background-image: svg-load('icon-battery.svg'); }
+	&--calendar           { background-image: svg-load('icon-calendar.svg'); }
+	&--camera             { background-image: svg-load('icon-camera.svg'); }
+	&--canbus             { background-image: svg-load('icon-canbus.svg'); }
+	&--carret             { background-image: svg-load('icon-carret.svg'); }
+	&--close            { background-image: svg-load('close.svg'); }
+	&--close-rounded      { background-image: svg-load('close-circular.svg'); }
+	&--check-circle       { background-image: svg-load('icon-check-circle.svg'); }
+  &--arrow-carret-left  { background-image: svg-load('arrow-carret-left.svg'); }
+  &--arrow-carret-right { background-image: svg-load('arrow-carret-right.svg'); }
+	&--cog                { background-image: svg-load('icon-cog.svg'); }
+	&--dashboard          { background-image: svg-load('icon-dashboard.svg'); }
+	&--download           { background-image: svg-load('icon-download.svg'); }
+	&--edit               { background-image: svg-load('icon-edit.svg'); }
+	&--fill-back          { background-image: svg-load('icon-fill-back.svg'); }
+	&--fill-home          { background-image: svg-load('icon-fill-home.svg'); }
+	&--fill-more          { background-image: svg-load('icon-fill-more.svg'); }
+	&--fill-user          { background-image: svg-load('icon-fill-user.svg'); }
+	&--floppy             { background-image: svg-load('icon-floppy.svg'); }
+	&--folders            { background-image: svg-load('icon-folders.svg'); }
+	&--help               { background-image: svg-load('icon-help.svg'); }
+	&--info               { background-image: svg-load('icon-info.svg'); }
+	&--logo               { background-image: svg-load('icon-logo.svg'); }
+	&--machine            { background-image: svg-load('icon-machine.svg'); }
+	&--net                { background-image: svg-load('icon-net.svg'); }
+	&--network            { background-image: svg-load('icon-network.svg'); }
+	&--paint              { background-image: svg-load('icon-paint.svg'); }
+	&--pause              { background-image: svg-load('icon-pause-big.svg'); }
+	&--pause-big              { background-image: svg-load('icon-pause-big.svg'); }
+	&--play               { background-image: svg-load('icon-play.svg'); }
+  &--play-big           { background-image: svg-load('icon-play-big.svg'); }
+	&--plus-thin          { background-image: svg-load('icon-plus-thin.svg'); }
+	&--printer            { background-image: svg-load('icon-printer.svg'); }
+	&--refresh            { background-image: svg-load('icon-refresh.svg'); }
+	&--return             { background-image: svg-load('icon-return.svg'); }
+	&--robot              { background-image: svg-load('icon-robot.svg'); }
+	&--search-data        { background-image: svg-load('icon-search-data.svg'); }
+	&--server-share       { background-image: svg-load('icon-server-share.svg'); }
+	&--socket             { background-image: svg-load('icon-socket.svg'); }
+	&--speed              { background-image: svg-load('icon-speed.svg'); }
+	&--stop               { background-image: svg-load('icon-stop.svg'); }
+	&--submit             { background-image: svg-load('icon-submit.svg'); }
+	&--switch             { background-image: svg-load('icon-switch.svg'); }
+	&--toggle             { background-image: svg-load('icon-toggle.svg'); }
+	&--tools              { background-image: svg-load('icon-tools.svg'); }
+	&--top-time           { background-image: svg-load('icon-top-time.svg'); }
+  &--top-one            { background-image: svg-load('icon-top-one.svg'); }
+  &--top-two            { background-image: svg-load('icon-top-two.svg'); }
+	&--up                 { background-image: svg-load('icon-up.svg'); }
+	&--upload             { background-image: svg-load('icon-upload.svg'); }
+	&--users              { background-image: svg-load('icon-users.svg'); }
+	&--wifi               { background-image: svg-load('icon-wifi.svg'); }
+
+	/* ── Rotation helpers ────────────────────────────────────── */
+	&--rotate-cw  { transform: rotate(90deg); }
+	&--rotate-ccw { transform: rotate(-90deg); }
+
+	/* ── Chevron (no dedicated SVG — drawn via CSS border) ───── */
+	&--chevron-right {
+		width: 20px;
+		height: 20px;
+		border-right: 3px solid var(--text-secondary);
+		border-bottom: 3px solid var(--text-secondary);
+		transform: rotate(-45deg);
+		background: none;
+	}
+
+	&--chevron-left {
+		width: 20px;
+		height: 20px;
+		border-left: 3px solid var(--text-secondary);
+		border-bottom: 3px solid var(--text-secondary);
+		transform: rotate(45deg);
+		background: none;
+	}
+}

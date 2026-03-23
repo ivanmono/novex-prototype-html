@@ -1,0 +1,46 @@
+/* =============================================================
+	 STATUS BAR  (.status-bar)
+	 Top bar: device icons | logo | machine status chip
+	 ============================================================= */
+.status-bar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: var(--unit-12) var(--unit-24);
+	flex-shrink: 0;
+
+	&__icons {
+		display: flex;
+		align-items: center;
+		gap: var(--unit-4);
+	}
+
+	/* Machine status chip — right side */
+	&__chip {
+		display: flex;
+		align-items: center;
+		gap: var(--unit-8);
+	}
+
+	&__dot {
+		width: var(--unit-18);
+		height: var(--unit-18);
+		border-radius: 50%;
+		flex-shrink: 0;
+
+		&--running { background: var(--success); }
+		&--standby { background: var(--yellow); }
+		&--error   { background: var(--red-dark); }
+	}
+
+	&__label {
+		font-size: 12px;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.15em;
+		color: var(--text-primary);
+		min-width: 72px;
+
+		&--error { color: var(--red-light); }
+	}
+}

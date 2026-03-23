@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=480, initial-scale=1">
+  <title>Novexx — Playground (Role Selector)</title>
+  <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+<div class="device">
+  <div class="page">
+
+    <include src="partials/status-bar.html"></include>
+
+    <div class="page-header">
+      <div class="page-header__left">
+        <a href="index.html" class="page-header__back" aria-label="Go back">
+          <i class="icon icon--arrow-left icon--md icon--white" aria-hidden="true"></i>
+        </a>
+        <h1 class="page-header__title">Playground 4</h1>
+      </div>
+    </div>
+
+    <main class="page__content page__content--inner" role="main">
+
+      <fieldset class="form-stack" aria-labelledby="role-legend">
+        <legend class="input-field__label m--bottom--bs" id="role-legend">User Role</legend>
+
+        <label class="select-drawer__option select-drawer__option--card">
+          <input type="radio" name="role" value="administrator" checked hidden>
+          <span class="select-drawer__option-label">Administrator</span>
+          <div class="select-drawer__radio"></div>
+          <i class="icon icon--check-circle icon--sm icon--white select-drawer__check" aria-hidden="true"></i>
+        </label>
+
+        <label class="select-drawer__option select-drawer__option--card">
+          <input type="radio" name="role" value="supervisor" hidden>
+          <span class="select-drawer__option-label">Supervisor</span>
+          <div class="select-drawer__radio"></div>
+          <i class="icon icon--check-circle icon--sm icon--white select-drawer__check" aria-hidden="true"></i>
+        </label>
+
+        <label class="select-drawer__option select-drawer__option--card">
+          <input type="radio" name="role" value="operator" hidden>
+          <span class="select-drawer__option-label">Operator</span>
+          <div class="select-drawer__radio"></div>
+          <i class="icon icon--check-circle icon--sm icon--white select-drawer__check" aria-hidden="true"></i>
+        </label>
+      </fieldset>
+
+      <button class="btn btn--primary m--top--bs" type="button">Save</button>
+
+    </main>
+
+    <include src="partials/bottom-nav-inner.html"></include>
+
+  </div>
+</div>
+<script src="../js/main.js"></script>
+</body>
+</html>

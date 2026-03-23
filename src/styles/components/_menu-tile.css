@@ -1,0 +1,65 @@
+/* =============================================================
+	 MENU TILE  (.menu-tile)
+	 Card with icon + label + sub-label. Used in 2-col grid on MenuPage.
+	 ============================================================= */
+.menu-tile {
+	display: block;
+	padding: 1px;
+	border-radius: var(--unit-24);
+	background: var(--gradient-stroke-secondary);
+	transition: transform 0.15s;
+
+	&:active      { transform: scale(0.95); }
+	&--disabled   { opacity: 0.40; cursor: not-allowed; pointer-events: none; }
+
+	&__inner {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: var(--unit-24);
+		padding: var(--unit-24);
+		border-radius: 23px;
+		background: var(--card-background);
+		min-height: 160px;
+	}
+
+	&__icon {
+		width: 42px;
+		height: 42px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	&__label {
+		font-size: 24px;
+		font-weight: 700;
+		color: var(--text-primary);
+		text-align: center;
+		line-height: 1.2;
+	}
+
+	&__sub {
+		font-size: 16px;
+		font-weight: 400;
+		color: var(--grey-dark);
+		text-align: center;
+		line-height: 1.2;
+	}
+
+	/* 2-column grid container for menu tiles */
+	&__grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: var(--unit-12);
+	}
+
+	/* Label + sub-label column wrapper inside each tile */
+	&__text {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: var(--unit-8);
+	}
+}
